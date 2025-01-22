@@ -43,7 +43,7 @@ export const UserItem = ({
     return (
         <Button
         variant="transparent"
-        className={cn(userItemVariants({ variant: variant}))}
+        className={cn(userItemVariants({ variant: variant }))}
         size="sm"
         asChild
         >
