@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { format, isToday, isYesterday } from "date-fns";
 import { Hint } from "./hint";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import { Thumbnail } from "./thumbnail";
 
 const Renderer = dynamic (() => import("@/components/renderer"), { ssr: false });
 interface MessageProps {
@@ -65,6 +66,7 @@ export const Message = ({
             </Hint>
             <div className="fklex flex-col w-full">
             <Renderer value={body}/>
+            <Thumbnail url={image}/>
             {updatedAt ? (
                 <span className="text-xm text-muted-foreground">
                     (edited)
@@ -77,6 +79,7 @@ export const Message = ({
     ) ;
 };
 const avatarFallback = authorName.charAt(0).toUpperCase();
+console.log("Thumbnail URL:", image);
 
 return (
     <div className="flex flex-col gap-2 p-1.5 px-5 hover:bg-gray-100/60 group relative">
@@ -104,6 +107,7 @@ return (
                     </Hint>
                 </div>
             <Renderer value={body}/>
+            <Thumbnail url={image}/>
             {updatedAt ? (
                 <span className="flex-xs text-muted-foreground">(edited)</span>
             ): null}
