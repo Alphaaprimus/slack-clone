@@ -82,7 +82,7 @@ const Editor = ({
                                 const text = quill.getText();
                                 const addedImage = imageElementRef.current?.files?.[0] || null;
 
-                                const IsEmpty =  !addedImage && text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
+                                const isEmpty =  !addedImage && text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
 
                                 if (isEmpty) return;
 
@@ -234,10 +234,15 @@ const Editor = ({
                             </Button>
                             <Button
                             disabled={disabled || isEmpty}
-                            onClick={()=> {}}
+                            onClick={() => {
+                                onSubmit({
+                                    body: JSON.stringify(quillRef.current?.getContents()),
+                                    image,  
+                                })
+                            }}
                             size="iconSm" 
                             className="bg-[#007a5a] hover:bg-[#007a5a]/80 text-white"                           >
-                                Update
+                                Save
                             </Button>
                         </div>
                     )}

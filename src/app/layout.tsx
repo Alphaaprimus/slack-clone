@@ -10,6 +10,9 @@ import "./globals.css";
 import { Modals } from "@/components/modals";
 import { JotaiProvider } from "@/components/jotai-provider";
 
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { type ReactNode } from 'react'
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,7 +45,7 @@ export default function RootLayout({
           <JotaiProvider>
           <Toaster/>
           <Modals/>
-          {children}
+          <NuqsAdapter>{children}</NuqsAdapter>
           </JotaiProvider>
         </ConvexClientProvider>
       </body>
