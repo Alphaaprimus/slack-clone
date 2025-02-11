@@ -7,6 +7,7 @@ import { Id } from "../../convex/_generated/dataModel";
 import { Loader, MessageCircleWarning } from "lucide-react";
 import { useWorkspaceId } from "@/hooks/use-workspaceid";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
+import { ConversationHero } from "./conversation-hero";
 
 const TIME_THRESHOLD = 5; 
 interface MessageListProps{
@@ -102,6 +103,7 @@ export const MessageList = ({
                             hideThreadButton={variant === "thread"}
                             threadCount={message.threadCount} 
                             threadImage={message.threadImage}   
+                            threadName={message.threadName}
                             threadTimeStamp={message.threadTimestamp}   
                             />
                         )
@@ -138,6 +140,12 @@ export const MessageList = ({
             <ChannelHero
              name={channelName}
              creationTime= {channelCreationTime}
+            />
+            )}
+            {variant === "conversation" &&(
+            <ConversationHero
+             name={memberName}
+             image= {memberImage}
             />
             )}
             
