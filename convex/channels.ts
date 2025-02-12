@@ -35,6 +35,19 @@ export const remove = mutation({
 
         //TODO : REMOVE MSGS
 
+        const [messages] =await Promise.all([
+            ctx.db
+            .query("messages")
+                .withIndex("by_channel_id", (q) => q.eq("channelId", args.id))
+                .collect(),
+            
+        ])
+
+        for (const message of messages) {
+            await ctx.db.delete(message._id);
+        }
+     
+ 
         await ctx.db.delete(args.id) 
 
         return args.id

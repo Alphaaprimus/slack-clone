@@ -36,7 +36,7 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
             <Sidebar/>
             <ResizablePanelGroup 
             direction="horizontal"
-            autoSaveId="ys-workspace-layout"
+            autoSaveId="ca-workspace-layout"
             >
                 <ResizablePanel
                   defaultSize={20}
@@ -46,7 +46,7 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
                     <WorkspaceSidebar/>
                 </ResizablePanel>
                 <ResizableHandle withHandle/>
-                <ResizablePanel>
+                <ResizablePanel minSize={20} defaultSize={80}>
                    {children}
                 </ResizablePanel>
                 {showPanel && (
