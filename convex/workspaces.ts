@@ -135,7 +135,7 @@ export const create = mutation({
 
 export const get = query({
     args: {},
-    handler: async (ctx, args) => {
+    handler: async (ctx) => {
         const userId = await getAuthUserId(ctx);
 
         if(!userId){

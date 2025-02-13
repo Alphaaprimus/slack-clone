@@ -1,6 +1,5 @@
 import { Doc, Id } from "../../convex/_generated/dataModel";
 import dynamic from "next/dynamic";
-import { Button } from "./ui/button";
 import { format, isToday, isYesterday } from "date-fns";
 import { Hint } from "./hint";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
